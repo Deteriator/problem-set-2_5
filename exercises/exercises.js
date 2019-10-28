@@ -1,36 +1,63 @@
 // Question 1
 const shoutout = function() {
-
+  for(let i= 0; i < arguments.length;i++){
+    console.log(arguments[i]);
+  }
 };
 
 // Question 2
 const reverseArray = function() {
-
+ let newArray = [];
+  for (let i = arguments.length - 1; i >= 0; i--) {
+   newArray.push(arguments[i]);
+  }
+  return newArray;
 };
 
 // Question 3
-const indexOf = function() {
-
+const indexOf = function(array,string) {
+    for(let i = 0; i < array.length; i++){
+      if(array[i] === string){
+        return i;
+      }
+    }
+    return -1;
 };
 
 // Question 4
-const join = function() {
-
+const join = function(array,seperator) {
+  let str ="";
+  for(let i = 0; i < array.length; i++){
+    if(seperator === undefined){
+    str += array[i] + ",";
+    }
+  else{
+    str += array[i] + seperator;
+    }
+  }
+  str = str.substring(0, str.length - 1);
+  return str;
 };
-
 // Question 5
-const push = function() {
-
+const push = function(array,value) {
+      let newArray = array;
+      newArray[array.length] = value;
+      return newArray.length;
 };
 
 // Question 6
-const pop = function() {
-
+const pop = function(array) {
+    let popped = array[array.length - 1];
+    array.length -= 1;
+    return (popped);
 };
 
 // Question 7
-const unshift = function() {
-
+const unshift = function(array) {
+  array.length = array.length + 1;
+    for(let i = 0;i < array.length; i++ ){
+    }
+    return array;
 };
 
 // Question 8
