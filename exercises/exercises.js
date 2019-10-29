@@ -53,26 +53,54 @@ const pop = function(array) {
 };
 
 // Question 7
-const unshift = function(array) {
-  array.length = array.length + 1;
-    for(let i = 0;i < array.length; i++ ){
+const unshift = function(array,value) {
+    for(let i = array.length - 1;i >=0; i--){
+      array[i + 1] = array[i];
     }
-    return array;
+    array[0] = value;
+    return array.length;
 };
 
 // Question 8
-const shift = function() {
-
+const shift = function(array) {
+    let element = array[0];
+    for( let i = 1; i < array.length; i++){
+      array[i - 1] = array[i];
+    }
+    array.length = array.length - 1;
+    return element;
 };
 
 // Question 9
-const lastIndexOf = function() {
-
+const lastIndexOf = function(array,value) {
+  let index = -1;
+    for(let i = 0; i < array.length; i++){
+      if(array[i] === value){
+        index = i;
+      }
+    }
+    return index;
 };
 
 // Question 10
-const slice = function() {
-
+const slice = function(array,start,end) {
+    let newArray = [];
+    if(end !==undefined && end < array.length){
+      for(let i = 0;i < end - 2; i++){
+        if(start >=0){
+          newArray[i] = array[i + start];
+        }
+        else{
+          newArray[i] = array[i];
+        }
+      }
+    }
+    else{
+      for(let i = 0; i < array.length;i++){
+        newArray[i] = array[i];
+      }
+    }
+  return newArray;
 };
 
 // Question 11
