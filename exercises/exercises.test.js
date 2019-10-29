@@ -3,7 +3,7 @@ const exercises = require('./exercises');
 // Question 2
 test('Question 2: reverseArray reverses array', () => {
   const testArr = [1, 2, 3, 4];
-  expect(exercises.reverseArray(testArr)).toBe([4, 3, 2, 1]);
+  expect(exercises.reverseArray(testArr)).toEqual([4, 3, 2, 1]);
 });
 
 // Question 2
