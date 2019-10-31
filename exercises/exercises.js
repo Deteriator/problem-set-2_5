@@ -6,16 +6,16 @@ const shoutout = function() {
 };
 
 // Question 2
-const reverseArray = function() {
+const reverseArray = function(array) {
  let newArray = [];
-  for (let i = arguments.length - 1; i >= 0; i--) {
-   newArray.push(arguments[i]);
+  for (let i = array.length - 1; i >= 0; i--) {
+   newArray.push(array[i]);
   }
   return newArray;
 };
 
 // Question 3
-const indexOf = function(array,string) {
+const indexOf = function(array, string) {
     for(let i = 0; i < array.length; i++){
       if(array[i] === string){
         return i;
@@ -25,7 +25,7 @@ const indexOf = function(array,string) {
 };
 
 // Question 4
-const join = function(array,seperator) {
+const join = function(array, seperator) {
   let str ="";
   for(let i = 0; i < array.length; i++){
     if(seperator === undefined){
@@ -39,10 +39,9 @@ const join = function(array,seperator) {
   return str;
 };
 // Question 5
-const push = function(array,value) {
-      let newArray = array;
-      newArray[array.length] = value;
-      return newArray.length;
+const push = function(array, value) {
+      array[array.length] = value;
+      return array.length;
 };
 
 // Question 6
@@ -53,7 +52,7 @@ const pop = function(array) {
 };
 
 // Question 7
-const unshift = function(array,value) {
+const unshift = function(array, value) {
     for(let i = array.length - 1;i >=0; i--){
       array[i + 1] = array[i];
     }
@@ -72,7 +71,7 @@ const shift = function(array) {
 };
 
 // Question 9
-const lastIndexOf = function(array,value) {
+const lastIndexOf = function(array, value) {
   let index = -1;
     for(let i = 0; i < array.length; i++){
       if(array[i] === value){
@@ -83,34 +82,27 @@ const lastIndexOf = function(array,value) {
 };
 
 // Question 10
-const slice = function(array,start,end) {
-    let newArray = [];
-    if(end !==undefined && end < array.length){
-      for(let i = 0;i < end - 2; i++){
-        if(start >=0){
-          newArray[i] = array[i + start];
-        }
-        else{
-          newArray[i] = array[i];
-        }
-      }
-    }
-    else{
-      for(let i = 0; i < array.length;i++){
-        newArray[i] = array[i];
-      }
-    }
-  return newArray;
+const slice = function(arr, start = 0,end = arr.length) {
+  let sliced = [];
+  for(let i = start; i < end; i++){
+    push(sliced, arr[i]);
+  }
+  return sliced;
 };
-
 // Question 11
-const splice = function() {
-
+const splice = function(arr, start, deleteCount) {
+  let cutValues = slice(arr, start, start + deleteCount);
+  for(let i = start; i < arr.length; i++){
+      arr[i] = arr[i + deleteCount];
+    }
+    arr.length = arr.length - deleteCount;
+    return cutValues;
 };
 
 // Question 12
-const spliceForReal = function() {
-
+const spliceForReal = function(arr, start, deleteCount, ...insertItems) {
+  let cutValues = splice(arr,start,deleteCount);
+   console.log(cutValues)
 };
 
 // Question 13
